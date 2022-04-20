@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>covtype_Thomas_Bründl</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>heartFailure_Thomas_Bründl</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Data-Science---Assignment-5---Comparative-Experimentation">Data Science - Assignment 5 - Comparative Experimentation<a class="anchor-link" href="#Data-Science---Assignment-5---Comparative-Experimentation">&#182;</a></h1><p>Dataset: <b>Covtype</b>     (large dataset)</p>
+<h1 id="Data-Science---Assignment-5---Comparative-Experimentation">Data Science - Assignment 5 - Comparative Experimentation<a class="anchor-link" href="#Data-Science---Assignment-5---Comparative-Experimentation">&#182;</a></h1><p>Dataset: <b>Heart Failure</b>     (small dataset)</p>
 <p>Thomas Bründl</p>
 <p>se21m032</p>
 <p><br></p>
@@ -14664,7 +14664,7 @@ The input parameters of the respective algorithms were varied to determine how t
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;covtype.data&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;heart_failure.csv&#39;</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
@@ -14706,225 +14706,152 @@ The input parameters of the respective algorithms were varied to determine how t
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-      <th>...</th>
-      <th>45</th>
-      <th>46</th>
-      <th>47</th>
-      <th>48</th>
-      <th>49</th>
-      <th>50</th>
-      <th>51</th>
-      <th>52</th>
-      <th>53</th>
-      <th>54</th>
+      <th>age</th>
+      <th>anaemia</th>
+      <th>creatinine_phosphokinase</th>
+      <th>diabetes</th>
+      <th>ejection_fraction</th>
+      <th>high_blood_pressure</th>
+      <th>platelets</th>
+      <th>serum_creatinine</th>
+      <th>serum_sodium</th>
+      <th>sex</th>
+      <th>smoking</th>
+      <th>time</th>
+      <th>DEATH_EVENT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>...</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
-      <td>581012.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.00000</td>
+      <td>299.000000</td>
+      <td>299.000000</td>
+      <td>299.00000</td>
+      <td>299.000000</td>
+      <td>299.00000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2959.365301</td>
-      <td>155.656807</td>
-      <td>14.103704</td>
-      <td>269.428217</td>
-      <td>46.418855</td>
-      <td>2350.146611</td>
-      <td>212.146049</td>
-      <td>223.318716</td>
-      <td>142.528263</td>
-      <td>1980.291226</td>
-      <td>...</td>
-      <td>0.090392</td>
-      <td>0.077716</td>
-      <td>0.002773</td>
-      <td>0.003255</td>
-      <td>0.000205</td>
-      <td>0.000513</td>
-      <td>0.026803</td>
-      <td>0.023762</td>
-      <td>0.015060</td>
-      <td>2.051471</td>
+      <td>60.833893</td>
+      <td>0.431438</td>
+      <td>581.839465</td>
+      <td>0.418060</td>
+      <td>38.083612</td>
+      <td>0.351171</td>
+      <td>263358.029264</td>
+      <td>1.39388</td>
+      <td>136.625418</td>
+      <td>0.648829</td>
+      <td>0.32107</td>
+      <td>130.260870</td>
+      <td>0.32107</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>279.984734</td>
-      <td>111.913721</td>
-      <td>7.488242</td>
-      <td>212.549356</td>
-      <td>58.295232</td>
-      <td>1559.254870</td>
-      <td>26.769889</td>
-      <td>19.768697</td>
-      <td>38.274529</td>
-      <td>1324.195210</td>
-      <td>...</td>
-      <td>0.286743</td>
-      <td>0.267725</td>
-      <td>0.052584</td>
-      <td>0.056957</td>
-      <td>0.014310</td>
-      <td>0.022641</td>
-      <td>0.161508</td>
-      <td>0.152307</td>
-      <td>0.121791</td>
-      <td>1.396504</td>
+      <td>11.894809</td>
+      <td>0.496107</td>
+      <td>970.287881</td>
+      <td>0.494067</td>
+      <td>11.834841</td>
+      <td>0.478136</td>
+      <td>97804.236869</td>
+      <td>1.03451</td>
+      <td>4.412477</td>
+      <td>0.478136</td>
+      <td>0.46767</td>
+      <td>77.614208</td>
+      <td>0.46767</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>1859.000000</td>
+      <td>40.000000</td>
       <td>0.000000</td>
+      <td>23.000000</td>
       <td>0.000000</td>
+      <td>14.000000</td>
       <td>0.000000</td>
-      <td>-173.000000</td>
+      <td>25100.000000</td>
+      <td>0.50000</td>
+      <td>113.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
+      <td>0.00000</td>
+      <td>4.000000</td>
+      <td>0.00000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>2809.000000</td>
-      <td>58.000000</td>
-      <td>9.000000</td>
-      <td>108.000000</td>
-      <td>7.000000</td>
-      <td>1106.000000</td>
-      <td>198.000000</td>
-      <td>213.000000</td>
-      <td>119.000000</td>
-      <td>1024.000000</td>
-      <td>...</td>
+      <td>51.000000</td>
       <td>0.000000</td>
+      <td>116.500000</td>
       <td>0.000000</td>
+      <td>30.000000</td>
       <td>0.000000</td>
+      <td>212500.000000</td>
+      <td>0.90000</td>
+      <td>134.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
+      <td>0.00000</td>
+      <td>73.000000</td>
+      <td>0.00000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2996.000000</td>
-      <td>127.000000</td>
-      <td>13.000000</td>
-      <td>218.000000</td>
-      <td>30.000000</td>
-      <td>1997.000000</td>
-      <td>218.000000</td>
-      <td>226.000000</td>
-      <td>143.000000</td>
-      <td>1710.000000</td>
-      <td>...</td>
+      <td>60.000000</td>
       <td>0.000000</td>
+      <td>250.000000</td>
       <td>0.000000</td>
+      <td>38.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
+      <td>262000.000000</td>
+      <td>1.10000</td>
+      <td>137.000000</td>
+      <td>1.000000</td>
+      <td>0.00000</td>
+      <td>115.000000</td>
+      <td>0.00000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>3163.000000</td>
-      <td>260.000000</td>
-      <td>18.000000</td>
-      <td>384.000000</td>
-      <td>69.000000</td>
-      <td>3328.000000</td>
-      <td>231.000000</td>
-      <td>237.000000</td>
-      <td>168.000000</td>
-      <td>2550.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
+      <td>70.000000</td>
+      <td>1.000000</td>
+      <td>582.000000</td>
+      <td>1.000000</td>
+      <td>45.000000</td>
+      <td>1.000000</td>
+      <td>303500.000000</td>
+      <td>1.40000</td>
+      <td>140.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>203.000000</td>
+      <td>1.00000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>3858.000000</td>
-      <td>360.000000</td>
-      <td>66.000000</td>
-      <td>1397.000000</td>
-      <td>601.000000</td>
-      <td>7117.000000</td>
-      <td>254.000000</td>
-      <td>254.000000</td>
-      <td>254.000000</td>
-      <td>7173.000000</td>
-      <td>...</td>
+      <td>95.000000</td>
       <td>1.000000</td>
+      <td>7861.000000</td>
       <td>1.000000</td>
+      <td>80.000000</td>
       <td>1.000000</td>
+      <td>850000.000000</td>
+      <td>9.40000</td>
+      <td>148.000000</td>
       <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>7.000000</td>
+      <td>1.00000</td>
+      <td>285.000000</td>
+      <td>1.00000</td>
     </tr>
   </tbody>
 </table>
-<p>8 rows × 55 columns</p>
 </div>
 </div>
 
@@ -14941,7 +14868,21 @@ The input parameters of the respective algorithms were varied to determine how t
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Hold-Out-Method">Hold Out Method<a class="anchor-link" href="#Hold-Out-Method">&#182;</a></h1><p>The first 53 columns (x) are used as independet variables to predict the dependent variable y which represents the column 54.</p>
+<h1 id="Hold-Out-Method">Hold Out Method<a class="anchor-link" href="#Hold-Out-Method">&#182;</a></h1><p>The following columns are used as independent varaibles (x):</p>
+<ol>
+<li>age</li>
+<li>anaemia</li>
+<li>creatinine_phosphokinase</li>
+<li>diabetes</li>
+<li>ejection_fraction</li>
+<li>high_blood_pressure</li>
+<li>platelets</li>
+<li>serum_creatinine</li>
+<li>serum_sodium</li>
+<li>sex</li>
+<li>smoking</li>
+</ol>
+<p>to predict the dependent variable "time" (y).</p>
 <p>The data (rows) is split into train and test data with a ratio of 66/33.</p>
 
 </div>
@@ -14955,7 +14896,7 @@ The input parameters of the respective algorithms were varied to determine how t
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,:</span><span class="mi">53</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="mi">54</span><span class="p">:],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1524401</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,:</span><span class="s1">&#39;smoking&#39;</span><span class="p">:],</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;DEATH_EVENT&#39;</span><span class="p">:],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1524401</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14970,7 +14911,7 @@ The input parameters of the respective algorithms were varied to determine how t
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="KNN-(k-nearest-neighbors)">KNN (k-nearest neighbors)<a class="anchor-link" href="#KNN-(k-nearest-neighbors)">&#182;</a></h1><p>KNN was tested with the kd-tree algorithm and three different input parameters were chosen as neighbors.</p>
+<h1 id="KNN-(k-nearest-neighbors)">KNN (k-nearest neighbors)<a class="anchor-link" href="#KNN-(k-nearest-neighbors)">&#182;</a></h1><p>KNN was tested with the kd-tree algorithm and three different input parameters were chosen (neighbors).</p>
 
 </div>
 </div>
@@ -15080,12 +15021,12 @@ The input parameters of the respective algorithms were varied to determine how t
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>--[KNN]----[Mean Results]---------------------------------------------
-mean training time: 10.78906512260437
-mean testing time: 17.475233395894367
-mean accuracy score: 0.963042548530777
-mean jaccard score: 0.9289282118980144
-mean f1 score: 0.9629408779632805
-mean precision score: 0.9630232642959531
+mean training time: 0.0016782283782958984
+mean testing time: 0.004324913024902344
+mean accuracy score: 0.6565656565656566
+mean jaccard score: 0.4667498714762524
+mean f1 score: 0.5853028649924437
+mean precision score: 0.5585386091027569
 </pre>
 </div>
 </div>
@@ -15151,46 +15092,46 @@ mean precision score: 0.9630232642959531
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
  train_times
-+-------------+---------+---------+---------+
-| neighbors   |       3 |       5 |       8 |
-+=============+=========+=========+=========+
-|             | 11.2053 | 10.5868 | 10.5751 |
-+-------------+---------+---------+---------+
++-------------+------------+-----------+------------+
+| neighbors   |          3 |         5 |          8 |
++=============+============+===========+============+
+|             | 0.00202274 | 0.0020113 | 0.00100064 |
++-------------+------------+-----------+------------+
 
  test_times
-+-------------+---------+---------+---------+
-| neighbors   |       3 |       5 |       8 |
-+=============+=========+=========+=========+
-|             | 14.3452 | 17.1465 | 20.9339 |
-+-------------+---------+---------+---------+
++-------------+------------+------------+------------+
+| neighbors   |          3 |          5 |          8 |
++=============+============+============+============+
+|             | 0.00497508 | 0.00298715 | 0.00501251 |
++-------------+------------+------------+------------+
 
  accuracy_scores
 +-------------+----------+----------+----------+
 | neighbors   |        3 |        5 |        8 |
 +=============+==========+==========+==========+
-|             | 0.966281 | 0.964555 | 0.958291 |
+|             | 0.636364 | 0.676768 | 0.656566 |
 +-------------+----------+----------+----------+
 
  jaccard_scores
 +-------------+----------+----------+----------+
 | neighbors   |        3 |        5 |        8 |
 +=============+==========+==========+==========+
-|             | 0.934965 | 0.931737 | 0.920083 |
+|             | 0.460969 | 0.494938 | 0.444342 |
 +-------------+----------+----------+----------+
 
  f1_scores
 +-------------+----------+----------+----------+
 | neighbors   |        3 |        5 |        8 |
 +=============+==========+==========+==========+
-|             | 0.966241 | 0.964483 | 0.958099 |
+|             | 0.595152 | 0.624295 | 0.536462 |
 +-------------+----------+----------+----------+
 
  precision_scores
-+-------------+----------+----------+----------+
-| neighbors   |        3 |        5 |        8 |
-+=============+==========+==========+==========+
-|             | 0.966237 | 0.964478 | 0.958355 |
-+-------------+----------+----------+----------+
++-------------+---------+----------+----------+
+| neighbors   |       3 |        5 |        8 |
++=============+=========+==========+==========+
+|             | 0.58598 | 0.636131 | 0.453504 |
++-------------+---------+----------+----------+
 </pre>
 </div>
 </div>
@@ -15206,8 +15147,7 @@ mean precision score: 0.9630232642959531
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The test time increases when the neighbours count is increased.
-All other evaluation criteria are not substantially  influenced by the varying neighbours count.</p>
+<p>Using different input parameters does not significantly influence the results.</p>
 
 </div>
 </div>
@@ -15220,7 +15160,9 @@ All other evaluation criteria are not substantially  influenced by the varying n
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Perceptron">Perceptron<a class="anchor-link" href="#Perceptron">&#182;</a></h1><p>The perceptron was tested with different alphas (0.0001, 0.00001, 0.001) and penalties (l2, l1, elasticnet).
-I can conclude that an alpha of 0.0001 will produce the best runtime result.</p>
+I could not find significant differences in Effectivenes nor in Efficiency by using different input parameters. 
+(At least with the small dataset. 
+At the large dataset differences could be found.)</p>
 
 </div>
 </div>
@@ -15289,11 +15231,11 @@ I can conclude that an alpha of 0.0001 will produce the best runtime result.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--[Perceptron]----[Mean Results]---------------------------------------------&quot;</span><span class="p">)</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Take only the first element of the train_times and the test_times list due to highly volatile behaviour of the train_time when it comes to alpha (0.00001, 0.001).&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This means when we take a alpha of 0.00001 or 0.001 then the train_time is increased substantially.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I choose to take only the first instance into account that is performed with a alpha of 0.0001 to not produce a misleading training result.&quot;</span><span class="p">)</span>
-<span class="n">mean_training_time</span> <span class="o">=</span> <span class="n">train_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">mean_testing_time</span> <span class="o">=</span> <span class="n">test_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># print(&quot;Take only the first element of the train_times and the test_times list due to highly volatile behaviour of the train_time when it comes to alpha (0.00001, 0.001).&quot;)</span>
+<span class="c1"># print(&quot;This means when we take a alpha of 0.00001 or 0.001 then the train_time is increased substantially.&quot;)</span>
+<span class="c1"># print(&quot;I choose to take only the first instance into account that is performed with a alpha of 0.0001 to not produce a misleading training result.&quot;)</span>
+<span class="n">mean_training_time</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_times</span><span class="p">)</span>
+<span class="n">mean_testing_time</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_times</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean training time: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mean_training_time</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean testing time: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mean_testing_time</span><span class="p">))</span>
@@ -15337,15 +15279,12 @@ I can conclude that an alpha of 0.0001 will produce the best runtime result.</p>
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>--[Perceptron]----[Mean Results]---------------------------------------------
-Take only the first element of the train_times and the test_times list due to highly volatile behaviour of the train_time when it comes to alpha (0.00001, 0.001).
-This means when we take a alpha of 0.00001 or 0.001 then the train_time is increased substantially.
-I choose to take only the first instance into account that is performed with a alpha of 0.0001 to not produce a misleading training result.
-mean training time: 5.770994663238525
-mean testing time: 0.0670006275177002
-mean accuracy score: 0.4574149603095956
-mean jaccard score: 0.2683143990277549
-mean f1 score: 0.3802636686106108
-mean precision score: 0.5165258227665548
+mean training time: 0.0016645060645209418
+mean testing time: 0.001111639870537652
+mean accuracy score: 0.6767676767676768
+mean jaccard score: 0.4580144883175186
+mean f1 score: 0.5463064378727029
+mean precision score: 0.4580144883175186
 </pre>
 </div>
 </div>
@@ -15410,69 +15349,69 @@ mean precision score: 0.5165258227665548
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
  train_times
-+-----------------+----------+-----------+---------+
-| penalty\alpha   |   0.0001 |   0.00001 |   0.001 |
-+=================+==========+===========+=========+
-| l2              |  5.77099 |   78.1979 | 92.8453 |
-+-----------------+----------+-----------+---------+
-| l1              |  6.36087 |   31.2037 | 10.8166 |
-+-----------------+----------+-----------+---------+
-| elasticnet      |  5.97032 |   31.6517 | 68.1718 |
-+-----------------+----------+-----------+---------+
++-----------------+-------------+------------+------------+
+| penalty\alpha   |      0.0001 |    0.00001 |      0.001 |
++=================+=============+============+============+
+| l2              | 0.00199842  | 0.00198364 | 0.00199938 |
++-----------------+-------------+------------+------------+
+| l1              | 0.000999928 | 0.0010004  | 0.00200152 |
++-----------------+-------------+------------+------------+
+| elasticnet      | 0.00100017  | 0.00199723 | 0.00199986 |
++-----------------+-------------+------------+------------+
 
  test_times
-+-----------------+-----------+-----------+-----------+
-| penalty\alpha   |    0.0001 |   0.00001 |     0.001 |
-+=================+===========+===========+===========+
-| l2              | 0.0670006 | 0.0580146 | 0.0607088 |
-+-----------------+-----------+-----------+-----------+
-| l1              | 0.057992  | 0.0579927 | 0.0689986 |
-+-----------------+-----------+-----------+-----------+
-| elasticnet      | 0.0586836 | 0.0599494 | 0.0620563 |
-+-----------------+-----------+-----------+-----------+
++-----------------+-------------+-------------+-------------+
+| penalty\alpha   |      0.0001 |     0.00001 |       0.001 |
++=================+=============+=============+=============+
+| l2              | 0.00200176  | 0.00100088  | 0.000999451 |
++-----------------+-------------+-------------+-------------+
+| l1              | 0.00100017  | 0.000999689 | 0.000998735 |
++-----------------+-------------+-------------+-------------+
+| elasticnet      | 0.000999689 | 0.00100017  | 0.00100422  |
++-----------------+-------------+-------------+-------------+
 
  accuracy_scores
 +-----------------+----------+-----------+----------+
 | penalty\alpha   |   0.0001 |   0.00001 |    0.001 |
 +=================+==========+===========+==========+
-| l2              | 0.526964 |  0.538001 | 0.487942 |
+| l2              | 0.676768 |  0.676768 | 0.676768 |
 +-----------------+----------+-----------+----------+
-| l1              | 0.502545 |  0.619029 | 0.41337  |
+| l1              | 0.676768 |  0.676768 | 0.676768 |
 +-----------------+----------+-----------+----------+
-| elasticnet      | 0.481813 |  0.429225 | 0.117846 |
+| elasticnet      | 0.676768 |  0.676768 | 0.676768 |
 +-----------------+----------+-----------+----------+
 
  jaccard_scores
-+-----------------+----------+-----------+-----------+
-| penalty\alpha   |   0.0001 |   0.00001 |     0.001 |
-+=================+==========+===========+===========+
-| l2              | 0.336103 |  0.312631 | 0.238394  |
-+-----------------+----------+-----------+-----------+
-| l1              | 0.315588 |  0.428562 | 0.195524  |
-+-----------------+----------+-----------+-----------+
-| elasticnet      | 0.236243 |  0.283255 | 0.0685299 |
-+-----------------+----------+-----------+-----------+
++-----------------+----------+-----------+----------+
+| penalty\alpha   |   0.0001 |   0.00001 |    0.001 |
++=================+==========+===========+==========+
+| l2              | 0.458014 |  0.458014 | 0.458014 |
++-----------------+----------+-----------+----------+
+| l1              | 0.458014 |  0.458014 | 0.458014 |
++-----------------+----------+-----------+----------+
+| elasticnet      | 0.458014 |  0.458014 | 0.458014 |
++-----------------+----------+-----------+----------+
 
  f1_scores
 +-----------------+----------+-----------+----------+
 | penalty\alpha   |   0.0001 |   0.00001 |    0.001 |
 +=================+==========+===========+==========+
-| l2              | 0.480389 |  0.436805 | 0.320811 |
+| l2              | 0.546306 |  0.546306 | 0.546306 |
 +-----------------+----------+-----------+----------+
-| l1              | 0.460695 |  0.57178  | 0.295027 |
+| l1              | 0.546306 |  0.546306 | 0.546306 |
 +-----------------+----------+-----------+----------+
-| elasticnet      | 0.319834 |  0.413968 | 0.123063 |
+| elasticnet      | 0.546306 |  0.546306 | 0.546306 |
 +-----------------+----------+-----------+----------+
 
  precision_scores
 +-----------------+----------+-----------+----------+
 | penalty\alpha   |   0.0001 |   0.00001 |    0.001 |
 +=================+==========+===========+==========+
-| l2              | 0.484731 |  0.566339 | 0.478207 |
+| l2              | 0.458014 |  0.458014 | 0.458014 |
 +-----------------+----------+-----------+----------+
-| l1              | 0.504423 |  0.589513 | 0.391815 |
+| l1              | 0.458014 |  0.458014 | 0.458014 |
 +-----------------+----------+-----------+----------+
-| elasticnet      | 0.3109   |  0.660941 | 0.661865 |
+| elasticnet      | 0.458014 |  0.458014 | 0.458014 |
 +-----------------+----------+-----------+----------+
 </pre>
 </div>
@@ -15489,21 +15428,7 @@ mean precision score: 0.5165258227665548
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>When the penalty is set to "l2" and alpha is increased (e.g. from 0.0001 to 0.001) then the training time increases substantially (i.e. 95 seconds).</p>
-<p>Varying the penalty does not produce significantly different results.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h1><p>The decision tree was tested with different min_samples_splits (2, 50, 100, 500, 1000) and min_samples_leafs (1, 50, 100, 500, 1000).</p>
-<p>When using a min_samples_split of 2 and a min_samples_leafs of 1000 a training time of only 3.87374 can be achieved. However when chosing this configuration the accuracy_score decreases.</p>
 
 </div>
 </div>
@@ -15616,12 +15541,12 @@ mean precision score: 0.5165258227665548
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>--[DecisionTree]----[Mean Results]---------------------------------------------
-mean training time: 4.545670976638794
-mean testing time: 0.06457898139953613
-mean accuracy score: 0.8640700136647648
-mean jaccard score: 0.7656439620799526
-mean f1 score: 0.8630173329961914
-mean precision score: 0.8631774455252602
+mean training time: 0.0017145729064941405
+mean testing time: 0.0009657573699951171
+mean accuracy score: 0.7333333333333334
+mean jaccard score: 0.5645705513885477
+mean f1 score: 0.679151997440421
+mean precision score: 0.6453556897935424
 </pre>
 </div>
 </div>
@@ -15686,93 +15611,93 @@ mean precision score: 0.8631774455252602
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
  train_times
-+----------------+---------+---------+---------+---------+---------+
-|   leafs\splits |       2 |      50 |     100 |     500 |    1000 |
-+================+=========+=========+=========+=========+=========+
-|              1 | 5.30844 | 5.17759 | 5.01953 | 4.99408 | 4.9301  |
-+----------------+---------+---------+---------+---------+---------+
-|             50 | 4.86908 | 4.8745  | 4.837   | 4.85299 | 4.84291 |
-+----------------+---------+---------+---------+---------+---------+
-|            100 | 4.71926 | 4.74575 | 4.71916 | 4.70003 | 4.70553 |
-+----------------+---------+---------+---------+---------+---------+
-|            500 | 4.1826  | 4.19158 | 4.17828 | 4.18286 | 4.21033 |
-+----------------+---------+---------+---------+---------+---------+
-|           1000 | 3.89692 | 3.87153 | 3.8651  | 3.88411 | 3.8825  |
-+----------------+---------+---------+---------+---------+---------+
++----------------+-------------+-------------+------------+------------+-------------+
+|   leafs\splits |           2 |          50 |        100 |        500 |        1000 |
++================+=============+=============+============+============+=============+
+|              1 | 0.00199962  | 0.00397635  | 0.00301409 | 0.00196028 | 0.00199866  |
++----------------+-------------+-------------+------------+------------+-------------+
+|             50 | 0.00202727  | 0.00195622  | 0.00104046 | 0.00195956 | 0.00200176  |
++----------------+-------------+-------------+------------+------------+-------------+
+|            100 | 0.0010016   | 0.00100136  | 0.00199628 | 0.00200129 | 0.000974178 |
++----------------+-------------+-------------+------------+------------+-------------+
+|            500 | 0.000936747 | 0.00100136  | 0.0019908  | 0.00196815 | 0.00200009  |
++----------------+-------------+-------------+------------+------------+-------------+
+|           1000 | 0.00104094  | 0.000999689 | 0.00199747 | 0.00101924 | 0.00100088  |
++----------------+-------------+-------------+------------+------------+-------------+
 
  test_times
-+----------------+-----------+-----------+-----------+-----------+-----------+
-|   leafs\splits |         2 |        50 |       100 |       500 |      1000 |
-+================+===========+===========+===========+===========+===========+
-|              1 | 0.0729587 | 0.0710578 | 0.0739956 | 0.0732028 | 0.0710523 |
-+----------------+-----------+-----------+-----------+-----------+-----------+
-|             50 | 0.0690002 | 0.0680025 | 0.066999  | 0.0669992 | 0.0660307 |
-+----------------+-----------+-----------+-----------+-----------+-----------+
-|            100 | 0.0720453 | 0.0720007 | 0.0680091 | 0.065984  | 0.064095  |
-+----------------+-----------+-----------+-----------+-----------+-----------+
-|            500 | 0.0570061 | 0.059957  | 0.0580015 | 0.0572417 | 0.0600052 |
-+----------------+-----------+-----------+-----------+-----------+-----------+
-|           1000 | 0.0530002 | 0.0559433 | 0.0539994 | 0.0629976 | 0.0548894 |
-+----------------+-----------+-----------+-----------+-----------+-----------+
++----------------+-------------+-------------+-------------+-------------+-------------+
+|   leafs\splits |           2 |          50 |         100 |         500 |        1000 |
++================+=============+=============+=============+=============+=============+
+|              1 | 0.00199962  | 0.000999689 | 0.00100899  | 0.00101924  | 0.00102997  |
++----------------+-------------+-------------+-------------+-------------+-------------+
+|             50 | 0.000999928 | 0.00100422  | 0.0010066   | 0.00104189  | 0.00101709  |
++----------------+-------------+-------------+-------------+-------------+-------------+
+|            100 | 0.000999928 | 0.000998974 | 0           | 0.000998259 | 0.0010078   |
++----------------+-------------+-------------+-------------+-------------+-------------+
+|            500 | 0.00104237  | 0.000956774 | 0.00100327  | 0.00103188  | 0           |
++----------------+-------------+-------------+-------------+-------------+-------------+
+|           1000 | 0.000997066 | 0.000999689 | 0.000998497 | 0.000983    | 0.000999212 |
++----------------+-------------+-------------+-------------+-------------+-------------+
 
  accuracy_scores
 +----------------+----------+----------+----------+----------+----------+
 |   leafs\splits |        2 |       50 |      100 |      500 |     1000 |
 +================+==========+==========+==========+==========+==========+
-|              1 | 0.933596 | 0.933596 | 0.933596 | 0.933596 | 0.933596 |
+|              1 | 0.707071 | 0.707071 | 0.707071 | 0.707071 | 0.707071 |
 +----------------+----------+----------+----------+----------+----------+
-|             50 | 0.902281 | 0.902281 | 0.902281 | 0.902281 | 0.902281 |
+|             50 | 0.808081 | 0.808081 | 0.808081 | 0.808081 | 0.808081 |
 +----------------+----------+----------+----------+----------+----------+
-|            100 | 0.879907 | 0.879907 | 0.879907 | 0.879907 | 0.879907 |
+|            100 | 0.79798  | 0.79798  | 0.79798  | 0.79798  | 0.79798  |
 +----------------+----------+----------+----------+----------+----------+
-|            500 | 0.814816 | 0.814816 | 0.814816 | 0.814816 | 0.814816 |
+|            500 | 0.676768 | 0.676768 | 0.676768 | 0.676768 | 0.676768 |
 +----------------+----------+----------+----------+----------+----------+
-|           1000 | 0.78975  | 0.78975  | 0.78975  | 0.78975  | 0.78975  |
+|           1000 | 0.676768 | 0.676768 | 0.676768 | 0.676768 | 0.676768 |
 +----------------+----------+----------+----------+----------+----------+
 
  jaccard_scores
 +----------------+----------+----------+----------+----------+----------+
 |   leafs\splits |        2 |       50 |      100 |      500 |     1000 |
 +================+==========+==========+==========+==========+==========+
-|              1 | 0.876216 | 0.876216 | 0.876216 | 0.876216 | 0.876216 |
+|              1 | 0.548603 | 0.548603 | 0.548603 | 0.548603 | 0.548603 |
 +----------------+----------+----------+----------+----------+----------+
-|             50 | 0.823105 | 0.823105 | 0.823105 | 0.823105 | 0.823105 |
+|             50 | 0.686658 | 0.686658 | 0.686658 | 0.686658 | 0.686658 |
 +----------------+----------+----------+----------+----------+----------+
-|            100 | 0.786804 | 0.786804 | 0.786804 | 0.786804 | 0.786804 |
+|            100 | 0.671563 | 0.671563 | 0.671563 | 0.671563 | 0.671563 |
 +----------------+----------+----------+----------+----------+----------+
-|            500 | 0.688327 | 0.688327 | 0.688327 | 0.688327 | 0.688327 |
+|            500 | 0.458014 | 0.458014 | 0.458014 | 0.458014 | 0.458014 |
 +----------------+----------+----------+----------+----------+----------+
-|           1000 | 0.653768 | 0.653768 | 0.653768 | 0.653768 | 0.653768 |
+|           1000 | 0.458014 | 0.458014 | 0.458014 | 0.458014 | 0.458014 |
 +----------------+----------+----------+----------+----------+----------+
 
  f1_scores
 +----------------+----------+----------+----------+----------+----------+
 |   leafs\splits |        2 |       50 |      100 |      500 |     1000 |
 +================+==========+==========+==========+==========+==========+
-|              1 | 0.933598 | 0.933598 | 0.933598 | 0.933598 | 0.933598 |
+|              1 | 0.692322 | 0.692322 | 0.692322 | 0.692322 | 0.692322 |
 +----------------+----------+----------+----------+----------+----------+
-|             50 | 0.902098 | 0.902098 | 0.902098 | 0.902098 | 0.902098 |
+|             50 | 0.811315 | 0.811315 | 0.811315 | 0.811315 | 0.811315 |
 +----------------+----------+----------+----------+----------+----------+
-|            100 | 0.879479 | 0.879479 | 0.879479 | 0.879479 | 0.879479 |
+|            100 | 0.79951  | 0.79951  | 0.79951  | 0.79951  | 0.79951  |
 +----------------+----------+----------+----------+----------+----------+
-|            500 | 0.812693 | 0.812693 | 0.812693 | 0.812693 | 0.812693 |
+|            500 | 0.546306 | 0.546306 | 0.546306 | 0.546306 | 0.546306 |
 +----------------+----------+----------+----------+----------+----------+
-|           1000 | 0.787218 | 0.787218 | 0.787218 | 0.787218 | 0.787218 |
+|           1000 | 0.546306 | 0.546306 | 0.546306 | 0.546306 | 0.546306 |
 +----------------+----------+----------+----------+----------+----------+
 
  precision_scores
 +----------------+----------+----------+----------+----------+----------+
 |   leafs\splits |        2 |       50 |      100 |      500 |     1000 |
 +================+==========+==========+==========+==========+==========+
-|              1 | 0.933608 | 0.933608 | 0.933608 | 0.933608 | 0.933608 |
+|              1 | 0.690272 | 0.690272 | 0.690272 | 0.690272 | 0.690272 |
 +----------------+----------+----------+----------+----------+----------+
-|             50 | 0.902011 | 0.902011 | 0.902011 | 0.902011 | 0.902011 |
+|             50 | 0.818759 | 0.818759 | 0.818759 | 0.818759 | 0.818759 |
 +----------------+----------+----------+----------+----------+----------+
-|            100 | 0.879322 | 0.879322 | 0.879322 | 0.879322 | 0.879322 |
+|            100 | 0.801719 | 0.801719 | 0.801719 | 0.801719 | 0.801719 |
 +----------------+----------+----------+----------+----------+----------+
-|            500 | 0.813469 | 0.813469 | 0.813469 | 0.813469 | 0.813469 |
+|            500 | 0.458014 | 0.458014 | 0.458014 | 0.458014 | 0.458014 |
 +----------------+----------+----------+----------+----------+----------+
-|           1000 | 0.787477 | 0.787477 | 0.787477 | 0.787477 | 0.787477 |
+|           1000 | 0.458014 | 0.458014 | 0.458014 | 0.458014 | 0.458014 |
 +----------------+----------+----------+----------+----------+----------+
 </pre>
 </div>
@@ -15834,11 +15759,11 @@ mean precision score: 0.8631774455252602
 <pre>+---------------+--------------+-------------+------------+-----------+----------+-------------+
 |               |   Train time |   Test time |   Accuracy |   Jaccard |       f1 |   Precision |
 +===============+==============+=============+============+===========+==========+=============+
-| K-NN          |     10.7891  |  17.4752    |   0.963043 |  0.928928 | 0.962941 |    0.963023 |
+| K-NN          |   0.00167823 | 0.00432491  |   0.656566 |  0.46675  | 0.585303 |    0.558539 |
 +---------------+--------------+-------------+------------+-----------+----------+-------------+
-| Perceptron    |      5.77099 |   0.0670006 |   0.457415 |  0.268314 | 0.380264 |    0.516526 |
+| Perceptron    |   0.00166451 | 0.00111164  |   0.676768 |  0.458014 | 0.546306 |    0.458014 |
 +---------------+--------------+-------------+------------+-----------+----------+-------------+
-| Decision Tree |      4.54567 |   0.064579  |   0.86407  |  0.765644 | 0.863017 |    0.863177 |
+| Decision Tree |   0.00171457 | 0.000965757 |   0.733333 |  0.564571 | 0.679152 |    0.645356 |
 +---------------+--------------+-------------+------------+-----------+----------+-------------+
 </pre>
 </div>
@@ -15855,9 +15780,9 @@ mean precision score: 0.8631774455252602
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The perceptron and the decision tree achieve good efficiency. The train time and test time are similar with the perceptron and the decision tree.</p>
-<p>KNN is not really efficient compared to the other methods. However KNN does achieve a very high accuracy, Jaccard, f1 and precission.</p>
-<p>The decission tree seems to be the best suited method for this data set. It provides very low training and testing time and produces a very high precision of 0.86.</p>
+<p>The prceptron and the decision tree achieved better results regarding efficiency (test time) than KNN.</p>
+<p>Besides that there could not be found significat differences in Effectivenes nor in Efficiency when conducting the test with the small dataset.</p>
+<p>However, the large dataset produces different results when it comes to Effectivenes and Efficiency.</p>
 
 </div>
 </div>
